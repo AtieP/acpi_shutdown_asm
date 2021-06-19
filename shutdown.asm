@@ -147,8 +147,8 @@ parse_s5:
 
 	; if pm1b block exists send there too
 	mov dx, [ebx+68]
-	cmp dx, 0x00
-	jne .wait
+	test dx, dx
+	jz .wait
 	in ax, dx
 	and ax, 0xe3ff
 	movzx cx, byte [.pm1b_cnt_slp_typ5]
