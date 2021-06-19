@@ -118,12 +118,13 @@ parse_s5:
 	; enable acpi mode if smm exists
 	mov ebx, [fadt]
 	mov dx, [ebx+48]
-	je .send_pm1a
+	test dx, dx
+	jz .send_pm1a
 
 	mov al, [ebx+52]
 
-	cmp al, 0x00
-	je .send_pm1a
+	test al, al
+	jz .send_pm1a
 
 	out dx, al
 	mov ecx, 100
