@@ -153,7 +153,7 @@ parse_s5:
 	and ax, 0xe3ff
 	movzx cx, byte [.pm1b_cnt_slp_typ5]
 	shl cx, 10
-	or cx, 1 << 3
+	or cx, 1 << 13
 	or ax, cx
 	out dx, ax
 
